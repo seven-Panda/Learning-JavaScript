@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // 创建一个函数，用来计算三个数的和
+        // 可以使用return 来设置函数的返回值
+        //  语法：
+        //      return 值
+        //  return后的值将作为函数的执行结果返回
+        //  可以定义一个变量来接收结果
+        
+        //  函数中return以后的语句都不执行
+        //  如果return语句中不跟任何值就相当于返回Undefined
+        //  不写return也相当于返回undefined
+
+        function sum(a , b , c){
+            // alert(a + b + c);
+            var d = a + b + c;
+            return d;
+        }
+
+        // 调用函数
+        // 函数返回什么result的值就是什么
+        var result = sum(1,2,3);
+        console.log("result = " + result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

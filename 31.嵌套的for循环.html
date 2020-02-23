@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+
+    // 通过程序，在页面中输出如下的图形
+    // *
+    // **
+    // ***
+    // ****
+    // *****
+
+    // 控制高度
+    for(var i = 0 ; i < 5 ; i++ ){
+        // 控制宽度
+        for (var j = 0 ; j < i + 1 ; j++){
+            document.write("*&nbsp;&nbsp;&nbsp;");
+        }
+        document.write("<br />");
+    }
+
+    document.write("<br />");
+
+
+    // 控制高度
+    for(var i = 0 ; i < 5 ; i++ ){
+        // 控制宽度
+        for (var j = 0 ; j < 5 - i ; j++ ){
+            document.write("*&nbsp;&nbsp;&nbsp;");
+        }
+        document.write("<br />");
+    }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

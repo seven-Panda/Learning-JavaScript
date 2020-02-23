@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+    
+    // 运算符也叫操作符
+    // 通过运算符可以对一个或多个值进行运算并获取运算结果
+    //  比如：typeof就是运算符，可以来获得一个值的类型
+    //          它会将该值的类型以字符串的形式返回
+    //          number string boolean undefined object
+
+    //  算数运算符
+    //      对非number的值进行运算时，会将非number的值转换为number在进行运算
+    //          任何值和NaN进行运算都是NaN
+    //      +
+    //          + 可以对两个值进行加法运算，并将结果返回
+    //          如果对两个字符串进行加法运算，会把两个字符串拼接成一个字符串
+    //          任何值和字符串做加法运算，都会先转换为字符串，再做拼接操作
+    //      -
+    //          - 可以对两个值进行减法运算，并将结果返回
+    //      *
+    //          * 可以对两个值进行乘法运算
+    //      /
+    //          / 可以对两个值进行除法运算
+    //      %
+    //          % 取模运算（取余数）
+
+    var a = 123;
+
+    var result = typeof a;
+
+    console.log(result);
+    console.log(typeof result);
+
+    a = a + 1;
+    console.log(a);
+
+    result = true + false;
+
+    result = 2 + null;
+
+    result = 2 + NaN;
+
+    result = "123" + "456";
+
+    // 任何值和字符串做加法运算，都会先转换为字符串，再做拼接操作
+    result = 123 + "1";
+    result = true + "hello";
+
+    
+    console.log(result);
+
+    
+    // 可以利用这一特点，来将一个任意的数据类型转换为String
+    //  我们只需要为任意的数据类型 + 一个 "" 即可将其转换为String
+    //      这是一种隐式的类型转换
+    var c = 123;
+    c = c + "";
+    console.log(typeof c);
+
+    console.log("c = " + c);
+
+    result = 1 + 2 +'3'; //33
+
+    result = "1" + 2 + 3; //123
+
+    result = 100 - 5;
+
+    result = 100 - true;
+
+    result = 100 - "1";
+
+    result = 2 * "8";
+
+    result = 2 * undefined;
+
+    result = 2 * null;
+
+    result = 3 / 2;
+
+    
+    console.log("result = " + result);
+
+    // 任何值做-*/运算时都会自动转换为number
+    //  我们可以利用这一特点做隐式的类型转换
+    //      可以通过为一个值 -0 *1 /1来将其转换为number
+    //      原理和number()方式一样，使用起来更简单
+
+    var d = "123";
+    d = d - 0;
+    console.log(typeof d);
+    console.log(d);
+
+    var e = 9 % 3;
+    e = 9 % 4;
+    console.log(typeof e);
+    console.log(e);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

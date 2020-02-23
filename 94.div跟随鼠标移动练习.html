@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: cadetblue;
+            position: absolute;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function(){
+
+            // 使div可以跟随鼠标移动
+
+            // 获取box1
+            var box1 = document.getElementById("box1");
+
+            // 绑定鼠标移动事件
+            document.onmousemove = function(event){
+
+                // 获取到鼠标的坐标
+                // clientX和clientY
+                //  - 用于获取当前可见窗口的坐标
+                // div的偏移量，是相对于整个页面的
+
+                // pageX和pageY可以获取鼠标相对于当前页面的坐标
+                var x = event.pageX;
+                var y = event.pageY;
+
+                // 设置div的偏移量
+                box1.style.left = x + "px";
+                box1.style.top = y + "px";
+            };
+        };
+    </script>
+</head>
+<body style="height: 1000px;">
+    
+    <div id="box1"></div>
+</body>
+</html>

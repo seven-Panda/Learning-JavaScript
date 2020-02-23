@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script type="text/javascript">
+
+    // 一元运算符：只需要一个操作数
+    //  +   正号
+    //      - 正号不会对数值产生任何影响
+    //  -   负号
+    //      - 负号可以对数字进行符号的取反
+    //  - 对于非number类型的值，会先转换为number，再运算
+    //      可以对其他数据类型使用+来将其转换为number
+    var a = 123;
+    a = -a;
+
+    a = true;
+    a = -a;
+
+    a = "18";
+    a = -a;
+
+    console.log(typeof a);
+    console.log("a = "+ a);
+
+    var result = 1 + "2" + 3;//123
+    result = 1 + +"2" + 3;//6
+    console.log("result = "+ result);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        var arr = ["孙悟空","猪八戒","沙和尚","唐僧"];
+        console.log(arr);
+
+        // slice(开始索引,结束索引)
+        //  - 可以用来从数组提取指定元素，不影响原数组
+        //  - 参数：
+        //      1.开始位置的索引
+        //      2.结束位置的索引
+        //          （第二个参数可以省略不写，此时截取从开始索引以后所有元素）
+        //      - 索引可以传递一个负值，代表从后往前计算
+        //          （-1代表倒数第一个元素）
+        var result = arr.slice(1,3);
+        console.log(result);
+
+        // splice()
+        //  - 可以用于删除数组中的指定元素并插入新元素
+        //  - 使用splice()会影响到原数组，删除原数组中的指定元素
+        //      并返回被删除的元素
+        //  - 参数：
+        //      1.开始位置的索引
+        //      2.删除的数量
+        //      3.及以后，可以传递新的元素，这些元素自动插入到开始位置索引前面
+        var result = arr.splice(1,1,"牛魔王","铁扇公主");
+        console.log(result);
+        console.log(arr);
+        
+        
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
