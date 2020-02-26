@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: coral;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: seagreen;
+            position: absolute;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            // 获取box1
+            var box1 = document.getElementById("box1");
+            // 获取btn01
+            var btn01 = document.getElementById("btn01");
+            // 获取btn02
+            var btn02 = document.getElementById("btn02");
+
+            // 定义一个变量用来保存定时器的标识
+            var timer;
+
+
+            // 点击按钮以后，使box1向右移动(left值增大)
+            btn01.onclick = function () {
+
+                move(box1,"left",20,800);
+
+            };
+
+            // 点击按钮以后，使box2左移动(left值减小)
+            btn02.onclick = function () {
+
+                move(box1,"left",10,0);
+        
+            };
+
+            // 获取btn03
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function(){
+                move(box2,"left",10,800);
+            };
+
+            // 获取btn04
+            var btn04 = document.getElementById("btn04");
+            btn04.onclick = function(){
+                // move(box2,"height",10,800);
+                // move(box2,"width",10,800);
+                // move(box2,"top",10,800);
+                move(box2,"width",10,800,function(){
+                    move(box2,"height",10,800,function(){});
+
+                });
+
+            };
+        };
+
+
+        // 定义一个变量，用来保存定时器的标识
+        // var timer;
+
+        // 尝试创建一个可以执行简单动画的函数
+        // obj 要执行动画的对象
+        // attr 要执行动画的样式
+        // target 执行动画的目标
+        // speed 移动的速度
+        // callback 回调函数，将会在动画执行完毕以后执行
+        function move(obj , attr , speed , target , callback) {
+            // 关闭上一个定时器
+            clearInterval(obj.timer);
+
+
+            // 获取元素目前的位置
+            var current = parseInt(getStyle(obj, attr));
+            
+            // 判断速度的正负
+            // 如果从0向800移动，则speed为正
+            // 如果从800向0移动，则speed为负
+            if(current > target){
+                // 此时速度应为负值
+                speed = -speed;
+            }
+
+            // 开启一个定时器，用来执行动画效果
+            // 向执行动画的对象中添加一个timer属性，用来保存它自己的定时器的标识
+            obj.timer = setInterval(function () {
+
+                // 获取box1原来的left值
+                var oldValue = parseInt(getStyle(obj, attr));
+
+                // 在旧值的基础上增加
+                var newValue = oldValue + speed;
+
+                // 判断newValue是否大于800
+                // 向左移动时，需要判断newValue是否小于target
+                // 向右移动时，需要判断newValue是否大于target
+                if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+                    newValue = target;
+                }
+
+                // 将新值设置给box1
+                obj.style[attr] = newValue + "px";
+
+                // 当元素移动到800px时，使其停止执行动画
+                if (newValue === target) {
+                    // 到达目标，关闭定时器
+                    clearInterval(obj.timer);
+                    // 动画执行完毕，调用回调函数
+                    callback && callback();
+                }
+
+            }, 30);
+        }
+
+        // 定义一个函数，用来获取指定元素的当前的样式
+        //  参数：
+        //      obj 要获取样式的元素
+        //      name 要获取的样式名
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                // 正常浏览器的方式，具有getComputedStyle()方法
+                return getComputedStyle(obj, null)[name];
+            } else {
+                // IE8的方式，没有getComputedStyle()方法
+                return obj.currentStyle[name];
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <button id="btn01">点击按钮以后box1向右移动</button>
+    <button id="btn02">点击按钮以后box1向左移动</button>
+    <button id="btn03">点击按钮以后box2向右移动</button>
+    <button id="btn04">测试按钮</button>
+
+
+
+    <br><br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <div style="width: 0; height: 1000px; border-left: 1px solid black;position: absolute; left: 800px;"></div>
+
+
+</body>
+
+</html>
